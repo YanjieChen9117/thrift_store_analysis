@@ -1,53 +1,55 @@
-# 滑铁卢大学学生二手购物行为研究
+# University of Waterloo Student Thrift Shopping Behavior Study
 
-## 项目简介
+## Project Overview
 
-本项目对119名滑铁卢大学学生的二手购物行为进行了全面的统计学分析，探讨了影响学生二手购物决策的关键因素，以及该行为在过去五年间的变化趋势。
+This project presents a comprehensive statistical analysis of thrift shopping behavior among 119 University of Waterloo students, examining key factors influencing students' thrift shopping decisions and trends over the past five years.
 
-## 核心研究问题
+## Core Research Questions
 
-1. **障碍一致性**: 对于经常和不经常逛二手店的人，逛二手店的障碍是否一致？
-2. **影响因素**: 服装质量下降、价格上涨和社会认知如何影响学生逛二手店的意愿？
-3. **时间趋势**: 在过去五年中，学生逛二手店的倾向发生了什么变化？
+1. **Barrier Consistency**: Are the barriers for thrifting consistent across people who thrift often and people who don't?
+2. **Influencing Factors**: How does the decrease in quality of clothing items, the increase in prices and social perceptions affect students' willingness to thrift?
+3. **Temporal Trends**: How have students' tendency to thrift changed over the past five years?
 
-## 主要发现
+## Key Findings
 
-### ✅ 问题1: 障碍认知的一致性
-- 不同购物频率群体对障碍的认知高度一致（ANOVA检验均未显示显著差异）
-- 购物频率的差异更多源于个人偏好等未观测因素
+### ✅ Question 1: Consistency in Barrier Perception
+- Different shopping frequency groups showed highly consistent barrier perceptions (ANOVA tests showed no significant differences)
+- Differences in shopping frequency stem more from unobserved factors like personal preferences rather than barrier perceptions
 
-### 💰 问题2: 经济动机主导
-- **经济性是最强驱动力**: 有经济动机的学生年均多购物4.3次 (p<0.01)
-- 80.7%的学生将经济性作为主要动机
-- 质量、社会接受度的影响未达到统计显著性
+### 💰 Question 2: Economic Motivation Dominates
+- **Affordability is the strongest driver**: Students with affordability motivation shop 4.3 times/year more (p<0.01)
+- 80.7% of students cited affordability as their primary motivation
+- Quality and social acceptability did not reach statistical significance
 
-### ⏱️ 问题3: 总体稳定，个体分化
-- 五年间平均购物频率无显著变化 (p=0.420)
-- 但57%的个体发生了变化（增加或减少）
-- 频繁购物者持续增长（+2.87次/年），显示习惯形成效应
+### ⏱️ Question 3: Overall Stability with Individual Variation
+- No significant change in average shopping frequency over five years (p=0.420)
+- However, 57% of individuals experienced changes (32.8% increased, 24.4% decreased)
+- **Frequent thrifters continued to increase** (+2.87 times/year), showing habit formation effects
 
-### 🔍 其他洞察
-- 低收入学生购物频率更高，证实"劣等品"特征
-- 政治保守派学生购物频率出人意料地高
-- 34.7%的学生认为价格过高，但尚未显著抑制购物
+### 🔍 Additional Insights
+- Lower-income students shop more frequently, confirming "inferior good" characteristics
+- Conservative students unexpectedly showed the highest shopping frequency
+- 34.7% of students perceive prices as too high, yet this hasn't significantly suppressed shopping
 
-## 项目结构
+## Project Structure
 
 ```
 thrift_store_analysis/
-├── Survey_Data_GRP-04.csv          # 原始调查数据
-├── analysis.py                      # Python分析脚本
-├── data_cleaned.csv                 # 清洗后的数据
-├── project.md                       # 详细分析报告（中文）
-├── README.md                        # 项目说明（本文件）
-├── analysis_output.txt              # 分析输出日志
-├── analysis_results_summary.json   # 结果摘要
-├── results_barriers_by_group.csv   # 障碍分析结果
-├── results_change_by_group.csv     # 时间变化结果
-├── results_income_analysis.csv     # 收入分析结果
-├── results_international_analysis.csv  # 国际学生分析
-├── results_political_analysis.csv  # 政治观点分析
-└── plots/                           # 可视化图表目录
+├── Survey_Data_GRP-04.csv          # Original survey data
+├── analysis.py                      # Python analysis script
+├── data_cleaned.csv                 # Cleaned data
+├── project.md                       # Detailed analysis report (English)
+├── project_zh.md                    # Detailed analysis report (Chinese)
+├── README.md                        # Project documentation (this file)
+├── README_zh.md                     # Project documentation (Chinese)
+├── analysis_output.txt              # Analysis output log
+├── analysis_results_summary.json   # Results summary
+├── results_barriers_by_group.csv   # Barrier analysis results
+├── results_change_by_group.csv     # Temporal change results
+├── results_income_analysis.csv     # Income analysis results
+├── results_international_analysis.csv  # International student analysis
+├── results_political_analysis.csv  # Political views analysis
+└── plots/                           # Visualization directory
     ├── 01_thrift_frequency_distribution.png
     ├── 02_time_comparison_boxplot.png
     ├── 03_motivations.png
@@ -61,129 +63,122 @@ thrift_store_analysis/
     └── 11_income_vs_frequency.png
 ```
 
-## 如何运行分析
+## How to Run the Analysis
 
-### 方法1: 使用Python (推荐)
+### Using Python (Recommended)
 
 ```bash
-# 确保已安装必要的包
+# Install required packages
 pip install pandas numpy matplotlib seaborn scipy statsmodels
 
-# 运行分析
+# Run analysis
 python3 analysis.py
 ```
 
-### 方法2: 使用R
+## Data Description
 
-```bash
-# 在R或RStudio中运行
-Rscript analysis.R
-```
+- **Sample Size**: 119 University of Waterloo students
+- **Survey Period**: 2024-2025 academic year
+- **Variables**: 23 core variables
+- **Main Variables**:
+  - Demographic information (age, program, income, etc.)
+  - Shopping behavior (past year frequency, five years ago frequency)
+  - Barrier assessment (price, quality, social acceptability, etc.)
+  - Motivations (sustainability, affordability, enjoyment)
 
-## 数据说明
+## Analytical Methods
 
-- **样本量**: 119名滑铁卢大学学生
-- **调查时间**: 2024-2025学年
-- **变量数**: 23个核心变量
-- **主要变量**:
-  - 人口统计学信息（年龄、专业、收入等）
-  - 购物行为（过去一年频率、五年前频率）
-  - 障碍评估（价格、质量、社会接受度等）
-  - 动机（可持续性、经济性、享受）
+This study employs multiple statistical methods:
 
-## 分析方法
+1. **Descriptive Statistics**: Mean, median, standard deviation, frequency distributions
+2. **Hypothesis Testing**: 
+   - One-way ANOVA
+   - Paired sample t-test
+   - Independent sample t-test
+   - Kruskal-Wallis test (non-parametric)
+3. **Regression Analysis**: 
+   - Multiple linear regression (OLS)
+   - Multicollinearity diagnostics (VIF)
+4. **Post-hoc Testing**: Tukey HSD
+5. **Correlation Analysis**: Pearson correlation coefficient
 
-本研究采用了多种统计学方法：
+## Key Results Files
 
-1. **描述性统计**: 均值、中位数、标准差、频数分布
-2. **假设检验**: 
-   - 单因素方差分析(ANOVA)
-   - 配对样本t检验
-   - 独立样本t检验
-   - Kruskal-Wallis检验（非参数）
-3. **回归分析**: 
-   - 多元线性回归(OLS)
-   - 多重共线性诊断(VIF)
-4. **事后检验**: Tukey HSD
-5. **相关性分析**: Pearson相关系数
+### 📊 Visualizations (plots/)
+11 high-resolution charts covering frequency distributions, temporal comparisons, barrier analysis, and correlations
 
-## 主要结果文件
+### 📝 Detailed Reports
+- `project.md`: Comprehensive analysis report in English
+- `project_zh.md`: Comprehensive analysis report in Chinese
+Including:
+- Complete research background and objectives
+- Detailed statistical analysis results
+- In-depth findings interpretation
+- Policy recommendations and theoretical contributions
+- Research limitations and future directions
 
-### 📊 可视化图表 (plots/)
-11张高分辨率图表，涵盖频率分布、时间对比、障碍分析、相关性等
+### 📈 Data Files
+- `data_cleaned.csv`: Cleaned data for further analysis
+- `results_*.csv`: Detailed result tables for each analysis
+- `analysis_results_summary.json`: Summary of key metrics
 
-### 📝 详细报告 (project.md)
-包含：
-- 完整的研究背景和目标
-- 详细的统计分析结果
-- 深入的发现解读
-- 政策建议和理论贡献
-- 研究局限和未来方向
+## Key Statistical Results
 
-### 📈 数据文件
-- `data_cleaned.csv`: 可用于进一步分析的清洗数据
-- `results_*.csv`: 各项分析的详细结果表格
-- `analysis_results_summary.json`: 关键指标汇总
+| Metric | Value |
+|--------|-------|
+| Sample Size | 119 |
+| Average Shopping Frequency (Past Year) | 6.59 times/year |
+| Average Shopping Frequency (Five Years Ago) | 6.17 times/year |
+| Affordability Motivation Rate | 80.7% |
+| Sustainability Motivation Rate | 63.0% |
+| Perceive Prices as Too High | 34.7% |
+| Social Acceptability Mean | 4.3/5 |
+| Regression Model R² | 0.128 |
 
-## 关键统计结果
+## Policy Recommendations Highlights
 
-| 指标 | 数值 |
-|------|------|
-| 样本量 | 119 |
-| 平均购物频率（过去一年） | 6.59次/年 |
-| 平均购物频率（五年前） | 6.17次/年 |
-| 经济动机比例 | 80.7% |
-| 可持续性动机比例 | 63.0% |
-| 认为价格过高比例 | 34.7% |
-| 社会接受度均值 | 4.3/5 |
-| 回归模型R² | 0.128 |
+### For University Administrators
+- Establish regular thrift markets on campus
+- Organize "thrift shopping experience days" to promote habit formation
+- Provide thrift shopping subsidies for low-income students
 
-## 政策建议亮点
+### For Thrift Store Merchants
+- Review pricing strategies, consider student-exclusive discounts
+- Establish quality grading and labeling systems
+- Offer membership programs for frequent shoppers
 
-### 针对大学管理者
-- 在校园内设立定期的二手市集
-- 组织"二手购物体验日"促进习惯形成
-- 为低收入学生提供二手购物补贴
+### For Policy Makers
+- Provide tax incentives to support the secondhand market
+- Incorporate sustainable consumption into general education
+- Establish quality standards for secondhand goods
 
-### 针对二手商家
-- 审视定价策略，考虑学生专属折扣
-- 建立质量分级和标注系统
-- 为频繁购物者提供会员计划
+## Technology Stack
 
-### 针对政策制定者
-- 提供税收优惠支持二手市场
-- 将可持续消费纳入通识教育
-- 建立二手商品质量标准
+- **Programming Languages**: Python 3.x
+- **Data Processing**: pandas, numpy
+- **Statistical Analysis**: scipy, statsmodels
+- **Visualization**: matplotlib, seaborn
 
-## 技术栈
+## Authors & Version
 
-- **编程语言**: Python 3.x, R
-- **数据处理**: pandas, numpy
-- **统计分析**: scipy, statsmodels
-- **可视化**: matplotlib, seaborn
-- **其他**: ggplot2 (R), dplyr (R)
+- **Analysis Date**: November 22, 2025
+- **Analysis Tools**: Python 3.x
+- **Version**: 1.0
 
-## 作者与版本
+## License & Citation
 
-- **分析日期**: 2025年11月22日
-- **分析工具**: Python 3.x
-- **版本**: 1.0
-
-## 许可与引用
-
-如需引用本研究，请使用以下格式：
+To cite this research, please use the following format:
 
 ```
-滑铁卢大学学生二手购物行为研究 (2024). 
-基于119名学生的调查数据分析. 
-滑铁卢大学环境与商业学院.
+University of Waterloo Student Thrift Shopping Behavior Study (2024). 
+Analysis Based on Survey Data from 119 Students. 
+Faculty of Environment and Business, University of Waterloo.
 ```
 
-## 联系方式
+## Contact
 
-如有疑问或需要进一步信息，请参考详细报告 `project.md`。
+For questions or additional information, please refer to the detailed reports `project.md` or `project_zh.md`.
 
 ---
 
-**注**: 图表中的文本使用英文，以符合国际学术规范；报告内容使用中文，便于中文读者理解。
-
+**Note**: Chart text is in English to conform to international academic standards; reports are available in both English and Chinese for accessibility.
