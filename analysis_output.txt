@@ -1,0 +1,250 @@
+================================================================================
+滑铁卢大学学生二手购物行为统计分析
+================================================================================
+
+1. 数据导入和清洗...
+--------------------------------------------------------------------------------
+原始数据维度: (119, 23)
+样本量: 119
+变量数: 23
+
+实际列名: ['respondentID', 'duration (Hours)', 'What is your age group?', 'What is your undergraduate program at the University of Waterloo?', 'What is your year of study?\xa0'] ...
+清洗后样本量: 119
+
+
+2. 描述性统计分析
+--------------------------------------------------------------------------------
+
+过去一年二手购物频率统计:
+count    119.000000
+mean       6.592437
+std        6.889247
+min        0.000000
+25%        2.000000
+50%        6.000000
+75%       10.500000
+max       24.000000
+Name: thrift_past_year_num, dtype: float64
+
+五年前二手购物频率统计:
+count    119.000000
+mean       6.172269
+std        7.482589
+min        0.000000
+25%        0.000000
+50%        2.000000
+75%       10.500000
+max       24.000000
+Name: thrift_five_years_ago_num, dtype: float64
+
+二手购物频率分组:
+thrift_frequency_group
+Occasional Thrifters    69
+Frequent Thrifters      33
+Non-Thrifters           17
+Name: count, dtype: int64
+
+购物动机统计:
+可持续性: 75 (63.0%)
+经济性: 96 (80.7%)
+享受: 64 (53.8%)
+
+3. 生成可视化图表...
+--------------------------------------------------------------------------------
+基础可视化完成!
+
+================================================================================
+问题1: 不同购物频率群体面临的障碍是否一致？
+================================================================================
+
+不同群体的障碍指标对比:
+                         n  ...  pct_overpriced
+thrift_frequency_group      ...                
+Frequent Thrifters      33  ...            45.5
+Non-Thrifters           17  ...            23.5
+Occasional Thrifters    69  ...            31.9
+
+[3 rows x 7 columns]
+
+
+=== 统计检验: ANOVA分析 ===
+
+价格对决策的影响 - ANOVA结果:
+  F统计量 = 0.3491, p值 = 0.7061
+  结论: 不同群体间无显著差异 (p >= 0.05)
+
+衣物状况评价 - ANOVA结果:
+  F统计量 = 0.7502, p值 = 0.4746
+  结论: 不同群体间无显著差异 (p >= 0.05)
+
+风格匹配 - ANOVA结果:
+  F统计量 = 1.4839, p值 = 0.2310
+  结论: 不同群体间无显著差异 (p >= 0.05)
+
+障碍分析可视化完成!
+
+================================================================================
+问题2: 质量、价格和社会认知对购物意愿的影响
+================================================================================
+
+多元线性回归结果:
+                             OLS Regression Results                             
+================================================================================
+Dep. Variable:     thrift_past_year_num   R-squared:                       0.128
+Model:                              OLS   Adj. R-squared:                  0.081
+Method:                   Least Squares   F-statistic:                     2.710
+Date:                  Fri, 21 Nov 2025   Prob (F-statistic):             0.0171
+Time:                          23:56:43   Log-Likelihood:                -386.64
+No. Observations:                   118   AIC:                             787.3
+Df Residuals:                       111   BIC:                             806.7
+Df Model:                             6                                         
+Covariance Type:              nonrobust                                         
+===============================================================================================
+                                  coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------
+const                          -8.5720      4.998     -1.715      0.089     -18.477       1.333
+condition_rating               -0.0442      0.926     -0.048      0.962      -1.880       1.792
+quality_brands                  0.6979      0.812      0.859      0.392      -0.912       2.308
+price_perception_num            1.9078      1.159      1.646      0.103      -0.389       4.204
+social_accept_num               1.0407      0.804      1.294      0.198      -0.553       2.635
+motivated_by_affordability      4.2765      1.613      2.652      0.009       1.081       7.472
+motivated_by_sustainability     1.2105      1.301      0.931      0.354      -1.367       3.788
+==============================================================================
+Omnibus:                       20.968   Durbin-Watson:                   1.932
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               25.822
+Skew:                           1.111   Prob(JB):                     2.47e-06
+Kurtosis:                       3.564   Cond. No.                         59.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+=== 多重共线性检验 (VIF) ===
+                      Variable        VIF
+0             condition_rating  30.729009
+1               quality_brands  21.748792
+2         price_perception_num  14.678360
+3            social_accept_num  20.658954
+4   motivated_by_affordability   5.500154
+5  motivated_by_sustainability   2.902263
+
+注: VIF > 10 表示存在严重多重共线性
+
+
+=== 相关性矩阵 ===
+                      thrift_past_year_num  ...  price_affects_num
+thrift_past_year_num                 1.000  ...             -0.014
+condition_rating                     0.046  ...              0.381
+quality_brands                       0.073  ...              0.390
+price_perception_num                 0.173  ...              0.131
+social_accept_num                    0.146  ...              0.114
+price_affects_num                   -0.014  ...              1.000
+
+[6 rows x 6 columns]
+
+质量、价格和社会认知分析可视化完成!
+
+================================================================================
+问题3: 过去五年购物倾向的变化
+================================================================================
+
+有效配对样本量: 119
+
+=== 配对样本t检验 ===
+t统计量 = 0.8099
+p值 = 0.4196
+结论: 过去一年与五年前的购物频率无显著差异 (p >= 0.05)
+
+=== 变化统计 ===
+平均变化: 0.42 次/年
+中位数变化: 0.00 次/年
+标准差: 5.66
+
+增加的人数: 39 (32.8%)
+减少的人数: 29 (24.4%)
+不变的人数: 51 (42.9%)
+
+变化方向分布:
+change_direction
+No Change               51
+Significant Increase    21
+Slight Increase         18
+Slight Decrease         16
+Significant Decrease    13
+Name: count, dtype: int64
+
+=== 按当前购物频率分组的变化情况 ===
+                         n  avg_past_year  ...  pct_increased  pct_decreased
+thrift_frequency_group                     ...                              
+Frequent Thrifters      33          16.32  ...           51.5           15.2
+Non-Thrifters           17           0.00  ...            0.0           17.6
+Occasional Thrifters    69           3.57  ...           31.9           30.4
+
+[3 rows x 6 columns]
+
+时间变化分析可视化完成!
+
+================================================================================
+其他发现和深入分析
+================================================================================
+
+=== 收入水平对购物频率的影响 ===
+               n  avg_frequency  pct_motivated_by_affordability
+income_level                                                   
+Low           74           6.72                           77.03
+Medium-Low    33           7.36                           84.85
+Medium         7           3.79                          100.00
+High           3           4.67                           66.67
+
+=== 国际学生 vs 本地学生 ===
+                        n  ...  pct_motivated_by_affordability
+international_student      ...                                
+No                     74  ...                           87.84
+Yes                    45  ...                           68.89
+
+[2 rows x 4 columns]
+
+t检验结果: t = nan, p = nan
+结论: 国际学生与本地学生的购物频率无显著差异
+
+=== 政治观点对购物行为的影响 ===
+                   n  avg_frequency  pct_motivated_by_sustainability
+political_views                                                     
+1 - very liberal  14           9.54                            64.29
+2 - liberal       39           6.28                            71.79
+3 - moderate      54           5.59                            64.81
+4 - conservative   9          10.89                            22.22
+
+=== 价格感知详细分析 ===
+
+价格感知分布:
+price_perception
+2- Priced correctly    73
+3 - Overpriced         41
+1 - Underpriced         4
+Name: count, dtype: int64
+
+比例:
+price_perception
+2- Priced correctly    61.9
+3 - Overpriced         34.7
+1 - Underpriced         3.4
+Name: count, dtype: float64
+
+Kruskal-Wallis检验: H = 4.3807, p = 0.1119
+结论: 价格感知对购物频率无显著影响
+
+所有可视化图表生成完成!
+
+================================================================================
+保存分析结果
+================================================================================
+
+分析完成！
+- 图表保存在: plots/
+- 清洗后数据: data_cleaned.csv
+- 结果摘要: analysis_results_summary.json
+- 详细结果表格: results_*.csv
+
+================================================================================

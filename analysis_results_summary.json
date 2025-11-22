@@ -1,0 +1,11 @@
+{
+  "sample_size": 119,
+  "avg_thrift_past_year": 6.592436974789916,
+  "avg_thrift_five_years": 6.1722689075630255,
+  "avg_change": 0.42016806722689076,
+  "t_test_p_value": 0.4196391762984698,
+  "pct_increased": 32.773109243697476,
+  "pct_decreased": 24.369747899159663,
+  "model_r_squared": 0.12778100017764882,
+  "model_adj_r_squared": 0.08063402721427859
+}

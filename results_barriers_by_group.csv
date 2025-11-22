@@ -1,0 +1,4 @@
+thrift_frequency_group,n,avg_price_barrier,avg_condition,avg_quality_brands,avg_style_fit,avg_social_accept,pct_overpriced
+Frequent Thrifters,33,4.03,3.758,3.424,3.818,4.364,45.5
+Non-Thrifters,17,4.294,3.765,3.647,3.471,4.0,23.5
+Occasional Thrifters,69,4.058,3.536,3.203,3.377,4.188,31.9
